@@ -1,0 +1,6 @@
+{
+  "name": "CareBridge",
+  "description": "AI-powered healthcare coordination and clinical intelligence platform connecting nurses, hospital capacity, emergency intake, inter-hospital referrals, and patient care journeys.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

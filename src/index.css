@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #1B3A4E;
+  --color-secondary: #2F6F6B;
+  --color-accent: #D97D4A;
+  --color-bg: #FAF8F5;
+  --color-surface: #EEF1F2;
+  --color-text: #16232B;
+  --color-muted: #5C6B72;
+  --color-border: #D9DFE1;
+  --color-success: #4C8B67;
+  --color-warning: #C98A2E;
+  --color-critical: #B4432F;
+  --color-info: #3F6E8C;
+  --font-display: 'General Sans', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+}
+
+@layer base {
+  html,
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono-data {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Prevent iOS zoom-on-focus below 1024px while keeping desktop typography unchanged */
+  @media (max-width: 1023px) {
+    input,
+    select,
+    textarea {
+      font-size: 16px !important;
+    }
+  }
+}
+
+.safe-top {
+  padding-top: max(1rem, calc(env(safe-area-inset-top, 0px) + 0.875rem));
+}
+
+.safe-bottom {
+  padding-bottom: max(0.5rem, env(safe-area-inset-bottom, 0px));
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes arc-draw {
+  from {
+    stroke-dashoffset: 100;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-arc {
+  stroke-dasharray: 100;
+  animation: arc-draw 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
