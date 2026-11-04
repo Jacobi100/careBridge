@@ -83,21 +83,27 @@ flowchart TD
 
 ## 🔄 Core Referral Workflow
 
-CareBridge structures emergency referrals into a traceable workflow:
+CareBridge structures emergency referrals into a traceable, two-stage workflow:
 
 ```mermaid
-flowchart LR
-    A["Emergency Intake"] --> B["Clinical Data Capture"]
-    B --> C["AI Structuring"]
-    C --> D["Clinician Review"]
-    D --> E["Facility Matching"]
-    E --> F["Referral Submission"]
-    F --> G["Receiving Facility Review"]
-    G --> H["Acceptance"]
-    H --> I["Patient Transfer"]
+flowchart TB
+    subgraph S1["STAGE 1 — INTAKE & PREPARATION"]
+        direction LR
+        A["01<br/>Emergency<br/>Intake"] --> B["02<br/>Clinical Data<br/>Capture"] --> C["03<br/>AI-Assisted<br/>Structuring"] --> D["04<br/>Clinician<br/>Review"] --> E["05<br/>Facility<br/>Matching"]
+    end
+
+    subgraph S2["STAGE 2 — REFERRAL & TRANSFER"]
+        direction LR
+        F["06<br/>Referral<br/>Submission"] --> G["07<br/>Receiving Facility<br/>Review"] --> H["08<br/>Referral<br/>Acceptance"] --> I["09<br/>Patient<br/>Transfer"]
+    end
+
+    E --> F
+
+    classDef process fill:#172554,stroke:#60A5FA,color:#FFFFFF,stroke-width:1.5px
+    class A,B,C,D,E,F,G,H,I process
 ```
 
-This reduces reliance on fragmented calls, messages, and paper-based information exchange while helping receiving facilities prepare before patient arrival.
+This workflow reduces reliance on fragmented calls, messages, and paper-based information exchange while helping receiving facilities prepare before patient arrival.
 
 ---
 
